@@ -9,9 +9,8 @@ import ProductCartCategory from "./ProductCartCategory/ProductCartCategory";
 import ProductCard from "../../UI/Cart/Cart";
 const Home = ( ) => {
   const [categorie, setCategorie] = useState('smartphones');
-  const { products, loading } = useProduct(categorie);
-  const { categories } = useCategories();
-  const dispatch = useDispatch();
+  const { loading } = useProduct(categorie);
+
   return (
     <>
       {loading ? <div className="loading"><i className="fa fa-spinner fa-spin"></i><h3 className="text-xl">Loading....</h3></div> :
