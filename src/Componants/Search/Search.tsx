@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../App/Store/Store";
 import {
@@ -13,7 +12,6 @@ const Search = () => {
     (state: RootState) => state.Search
   );
 
-  // عند تغيير قيمة البحث
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     dispatch(setSearchTerm(value));
@@ -28,28 +26,23 @@ const Search = () => {
 
   return (
     <div className="p-4">
-      {/* input */}
       <div className="pt-20 px-4 flex justify-center">
         <input
           type="text"
           value={searchTerm}
           onChange={handleSearch}
           placeholder="ابحث عن منتج..."
-          className="w-full max-w-md px-4 py-2 rounded-2xl border border-gray-300 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right"
+          className={`w-full max-w-md px-4 py-2 rounded-2xl border border-gray-300 shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-right`}
         />
       </div>
-
-      {/* الحالة */}
       {status === "loading" && <p className="text-center mt-4">جاري التحميل...</p>}
       {status === "failed" && (
         <p className="text-center text-red-600 mt-4">{error}</p>
       )}
-
-      {/* النتائج */}
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 w-full mx-auto max-w-4xl">
-        {status === "succeeded" &&
+      <div className={`mt-6 grid grid-cols-1 md:grid-cols-2 gap-4 w-full mx-auto max-w-4xl ${searchTerm.trim() ===''?"h-auto" : 'h-80 overflow-y-scroll'}`}>
+        {status === "succeeded" && 
           results.map((product) => (
-            <div
+             <div
               key={product.id}
               className="p-4 bg-indigo-100 shadow rounded-xl flex items-center justify-between"
             >
