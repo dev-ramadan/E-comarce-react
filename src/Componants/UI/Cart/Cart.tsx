@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useProduct } from "../../../Utils/Hooks/useProduct";
-import { addToCart } from "../../../App/features/counter/productSlice";
+import { addToCart } from "../../../App/features/ProductSlice/productSlice";
 import { IProduct } from "../../../Utils/Interfaces";
 import { Link } from "react-router-dom";
 

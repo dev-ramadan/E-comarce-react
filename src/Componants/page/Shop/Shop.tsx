@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux";
 import { useProduct } from "../../../Utils/Hooks/useProduct";
-import { addToCart } from "../../../App/features/counter/productSlice";
+import { addToCart } from "../../../App/features/ProductSlice/productSlice";
 import { useCategories } from "../../../Utils/Hooks/useCategories";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Search from "../../Search/Search";
 const Product = () => {
   const [categorie, setCategorie] = useState('smartphones');
   const { products, loading } = useProduct(categorie);
@@ -13,6 +14,7 @@ const Product = () => {
     <>
       {loading ? <div className="loading"><i className="fa fa-spinner fa-spin"></i><h3 className="text-xl">Loading....</h3></div> :
         <div className="p-4">
+          <Search/>
           <select value={categorie} onChange={(e) => setCategorie(e.target.value)} className="mb-4 p-2 rounded">
             {categories.map((item) => (
               <option key={item.slug} value={item.slug}>

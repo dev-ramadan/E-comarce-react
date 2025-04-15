@@ -7,7 +7,6 @@ interface ICounter {
 }
 
 const initialState: ICounter = {
-
   cartItem : localStorage.getItem("cart")?
   JSON.parse(localStorage.getItem("cart")!):
   []

@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../App/Store/Store";
-import { decrementQty, deleteProduct, incrementQty } from "../../../App/features/counter/productSlice";
+import { decrementQty, deleteProduct, incrementQty } from "../../../App/features/ProductSlice/productSlice";
 
 interface IProps {}
 

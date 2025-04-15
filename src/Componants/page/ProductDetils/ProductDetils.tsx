@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { IProduct } from "../../../Utils/Interfaces";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../../../App/features/counter/productSlice";
+import { addToCart } from "../../../App/features/ProductSlice/productSlice";
 const ProductDetails = () => {
     const [detils, setDetils] = useState<IProduct>()
     const [productImage, setProductImage] = useState("")
